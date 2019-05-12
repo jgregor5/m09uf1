@@ -15,6 +15,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.cert.CertificateException;
@@ -33,6 +34,17 @@ import javax.crypto.spec.SecretKeySpec;
 public class CryptoUtils {
     
     private CryptoUtils() {}
+    
+    // random
+    
+    public static byte[] randomBytes(int size) {
+    
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[size];
+        random.nextBytes(salt);
+        
+        return salt;
+    }
     
     // secret
     
