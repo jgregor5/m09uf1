@@ -29,7 +29,7 @@ public class SSLSocketsInfo {
         - clientKeystore.jks: clau pública/privada del client 
         - serverTruststore.jks: clau pública del client
     
-    keytool -genkey -keyalg RSA -alias cltAlias -keystore clientKeystore.jks -storepass yourpassword -keysize 2048
+    keytool -genkey -keyalg RSA -alias cltAlias -keystore clientKeystore.jks -keysize 2048
     keytool -export -keystore clientKeystore.jks -alias cltAlias -file cliente.crt
     keytool -importcert -file cliente.crt -keystore serverTruststore.jks -alias cltAlias
     
