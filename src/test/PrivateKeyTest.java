@@ -15,8 +15,8 @@ public class PrivateKeyTest {
         
         String text = "Under canopy frost white in winter there'll be buds forming, waiting to greet the spring";
         
-        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-        keyGen.init(256);
+        KeyGenerator keyGen = KeyGenerator.getInstance("DES");
+        keyGen.init(56);
         SecretKey secretKey = keyGen.generateKey();
         
         byte[] encrypted = encrypt(secretKey, text.getBytes("UTF-8"));        
@@ -28,7 +28,7 @@ public class PrivateKeyTest {
  
     public static byte[] encrypt(Key secretKey, byte[] data) throws Exception {
         
-        Cipher cipher = Cipher.getInstance("AES");        
+        Cipher cipher = Cipher.getInstance("DES");        
         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
         
         byte[] encrypted = cipher.doFinal(data);
@@ -37,7 +37,7 @@ public class PrivateKeyTest {
     
     public static byte[] decrypt(Key secretKey, byte[] data) throws Exception {
         
-        Cipher cipher = Cipher.getInstance("AES");        
+        Cipher cipher = Cipher.getInstance("DES");        
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
         
         byte[] decrypted = cipher.doFinal(data);
