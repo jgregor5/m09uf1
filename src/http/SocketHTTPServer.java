@@ -47,7 +47,7 @@ public class SocketHTTPServer {
             // first line of response
             String input = in.readLine();
             if (input == null) {
-                throw new RuntimeException("request line is missing");
+                return;
             }
             
             String[] parts = input.split(" ");
