@@ -75,7 +75,7 @@ public class SessionStorage extends AbstractStorage {
              folder.mkdir();
         }
         
-        return new File(folder, key);
+        return new File(folder, key + ".json");
     }
     
     @Override
