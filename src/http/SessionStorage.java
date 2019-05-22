@@ -31,11 +31,16 @@ public class SessionStorage extends AbstractStorage {
     
     public synchronized static SessionStorage newInstance() {
         
+        String key = UUID.randomUUID().toString();        
+        return newInstance(key);
+    }
+    
+    public synchronized static SessionStorage newInstance(String key) {
+        
         if (sessions == null) {
             sessions = new HashMap<>();
         }
-
-        String key = UUID.randomUUID().toString();        
+      
         SessionStorage session = new SessionStorage(key);
         sessions.put(key, session);
         return session;
